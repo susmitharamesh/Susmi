@@ -1,0 +1,47 @@
+* {
+  margin: 10px;
+  padding: 10px;
+}
+body {
+  background-color: #eee;
+}
+.border border-dark {
+  border: 5px solid black;
+  border-radius: 30%;
+}
+#result {
+  top: 90px;
+  background-color: rgba(0, 0, 255, 0.63);
+  color: #fff;
+  border-radius: 30px;
+  width: 25%;
+  height: 500px;
+}
+.percentage {
+  height: 130px;
+  width: 130px;
+  background-color: #331896cc;
+  border-radius: 50%;
+  display: inline-block;
+  margin-left: 40px;
+}
+.percentage > h1 {
+  font-size: 5rem;
+  margin-left: 15px;
+  position: relative;
+  bottom: 20px;
+}
+.percentage > h5 {
+  font-size: 1.5rem;
+  word-spacing: 2px;
+  margin-left: 15px;
+  position: relative;
+  bottom: 40px;
+}
+
+button {
+  width: 90%;
+  margin-left: 6px;
+  text-decoration: rgb(4, 5, 99);
+  transition: 0.5s ease-out;
+}
