@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <main>
+      <h1>Input</h1>
+      <input type="text" id="name" />
+      <input type="button" value="Add" onclick="addTask()" id="btn" />
+    </main>
+    <script>
+      let input = document.getElementById("name");
+      function loader(bool) {
+        let btn = document.getElementById("btn");
+        if (bool) {
+          btn.value = "Loading!!!";
+          btn.disabled = true;
+        } else {
+          btn.value = "Add";
+          btn.disabled = false;
+        }
+      }
+      function triggerPromise(task) {
+        return new Promise(function (resolve, reject) {
+          loader(true);
+          setTimeout(function () {
+            if (task.length <= 10) {
+              resolve(task);
+            } else {
+              reject("Length must be lesser than 10");
+            }
+            loader(false);
+          }, 2000);
+        });
+      }
+      function addTaskRes(taskVal) {
+        let h4 = document.createElement("h4");
+        h4.innerHTML = taskVal;
+        document.body.appendChild(h4);
+      }
+      function addTask() {
+        let task = input.value;
+
+        triggerPromise(task)
+          .then(function (data) {
+            addTaskRes(data);
+            input.value = "";
+          })
+          .catch(function (err) {
+            alert(err);
+          });
+      }
+    </script>
+  </body>
+</html>
